@@ -1,0 +1,33 @@
+{
+  "name": "untitled3",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build:styles": "./src/assets/styles.css -o ./src/assets/output.css"
+  },
+  "dependencies": {
+    "@material/web": "^1.0.1",
+    "axios": "^1.5.1",
+    "crypt": "^0.0.2",
+    "crypto": "^1.0.1",
+    "swiper": "^11.0.4",
+    "toast": "0.5.4",
+    "vue": "^3.3.4",
+    "vue-material-design-icons": "^5.2.0",
+    "vue-resource": "^1.5.3",
+    "vue-router": "^4.2.5",
+    "vuejs-paginate-next": "^1.0.2",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.4.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "sass": "^1.69.5",
+    "tailwindcss": "^3.3.5",
+    "vite": "^4.4.11"
+  }
+}
