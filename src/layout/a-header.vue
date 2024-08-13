@@ -39,7 +39,7 @@
               </li>
               <li @click="menuOpen=!menuOpen" class="header-menu-li">
                 <router-link to="/catalog">
-                  Топ 100
+                  Топ 250
                 </router-link>
               </li>
             </ul>
@@ -120,7 +120,6 @@ components:{aSearch},
   top: 0;
   width: 100%;
   left: 0;
-  right: 100px;
   color: white;
   img{
     width: 50px;
@@ -143,7 +142,6 @@ components:{aSearch},
   background: transparent;
   border: 1px solid black;
   border-radius: 15px;
-  min-width: 300px;
   text-align: left;
   line-height: 2em;
 }
@@ -211,7 +209,7 @@ a{
   left: 0;
   bottom: 0;
   width: 400px;
-  background: #717179;
+  background: rgba(113, 113, 121, .8);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -222,7 +220,7 @@ a{
 }
 .header-menu-li:hover{
 
-  padding: 15px;
+  padding: 0 0 0 15px;
 }
 .opening {
   position: absolute;

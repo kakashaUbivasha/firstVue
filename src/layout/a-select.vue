@@ -69,28 +69,21 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.a-select{
-  position: relative;
-  width: 300px;
-  margin-bottom: 100px;
-}
+<style lang="scss" scoped>
 .a-select p{
   margin: 0;
 }
 .options{
   border: solid 1px #eaeaea;
   position: absolute;
-  top: 80px;
   right: 0;
   width: 100%;
   background: #f6f7fa;
   padding-top: 10px;
   padding-bottom: 8px;
-  z-index: 20;
+  z-index: 10;
 }
 .title{
-  border: solid 1px #eaeaea;
   cursor: pointer;
   padding: 8px;
   display: flex;
@@ -107,4 +100,5 @@ export default {
   padding-left: 15px;
   padding-bottom: 8px;
 }
+
 </style>

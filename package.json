@@ -11,8 +11,6 @@
   "dependencies": {
     "@material/web": "^1.0.1",
     "axios": "^1.5.1",
-    "crypt": "^0.0.2",
-    "crypto": "^1.0.1",
     "swiper": "^11.0.4",
     "toast": "0.5.4",
     "vue": "^3.3.4",

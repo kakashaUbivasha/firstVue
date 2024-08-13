@@ -58,15 +58,14 @@ components:{Paginate},
 .a-page{
   display: flex;
   margin-top: 15px;
+  margin-right: 100px;
 }
 .page{
   display: flex;
   justify-content: center;
   align-items: center;
   width: 36px;
-  min-width: 36px;
   height: 36px;
-  min-height: 36px;
   cursor: pointer;
   text-decoration: none;
   color: #000;

@@ -1,9 +1,9 @@
 <template>
-  <div class="k-main-page">
+  <div class="k-main-page ">
     <h3 class="k-main-page__title">
       Свежие новинки!
     </h3>
-    <div class="swiper_users__setting">
+    <div class="swiper_users__setting select-none">
     <swiper
         :spaceBetween="30"
         :centeredSlides="true"
@@ -14,7 +14,7 @@
         :pagination="{
       clickable: false,
     }"
-        :navigation="true"
+        :navigation="false"
         :modules="modules"
         class="mySwiper"
     >
@@ -32,7 +32,7 @@
 </template>
 
 <script >
-import kCatalog from './k-catalog.vue'
+import kCatalog from './top-films/k-catalog.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay} from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
@@ -74,9 +74,6 @@ data(){
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-
-
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,6 +81,7 @@ data(){
 .my-swiper-slide{
   box-shadow: 0 0 5px 0 #2c2d3a;
   padding-bottom: 12px;
+
 }
 .swiper-button-next::after{
   content: '';
@@ -104,14 +102,27 @@ data(){
 
 
 }
-.k-main-page--img{
-  max-width: 400px;
-  max-height: 800px;
+.k-main-page--img {
+  max-width: 100%; /* Изображение должно масштабироваться в пределах контейнера */
+  height: 600px; /* Поддержание пропорций изображения */
 }
 .k-main-page__title{
   font-weight: 700;
   font-size: 25px;
   text-align: center;
   margin-bottom: 20px;
+}
+@media (max-width: 1024px) {
+  .k-main-page{
+    margin-top: 25%;
+  }
+}
+@media (max-width: 550px){
+  .k-main-page--img{
+    height: 400px;
+  }
+  .k-main-page{
+    margin-top: 50%;
+  }
 }
 </style>

@@ -1,7 +1,8 @@
 <template>
   <div class="a-footer">
-  <p>Сделано мной)</p>
-    <p>2023 © KakashaUbivasha — дотер, хуётер. Все права защищены(нет).</p>
+  <p class="text-footer">created by kakashaUbivasha</p>
+    <p class="text-footer">2023 © сделано при помощи <a class="font-normal" href="https://kinopoiskapiunofficial.tech/" title="неофициальный API кинопоиска">Kinopoisk API Unofficial
+    </a> .</p>
     <div class="logo--footer">
       <a style="margin-top: 3px;" href="mailto:maks.palaznik297@gmail.com"><img width="25" height="25" src="https://img.icons8.com/ios-filled/50/new-post.png" alt="new-post"/></a>
       <a href="https://github.com/kakashaUbivasha" target="_blank">
@@ -32,7 +33,6 @@ export default {
   bottom: 0;
   width: 100%;
   left: 0;
-  right: 200px;
   color: white;
 }
 .logo--footer{
@@ -41,5 +41,12 @@ export default {
   gap: 10px;
 
 }
-
+@media (max-width: 728px){
+  .logo--footer{
+    gap: 5px;
+  }
+  .text-footer {
+    font-size: 13px;
+  }
+}
 </style>
