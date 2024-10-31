@@ -25,14 +25,14 @@
 
     </div>
 
-    <div class="mt-5 flex paginate">
+    <div class="mt-5 flex paginate wphone">
       <paginate
           v-model="page"
           @click="reworkPage()"
           :next-text="nextText"
           :prev-text="prevText"
           :page-range="3"
-          :margin-pages="2"
+          :margin-pages="5"
           :page-count="totalPage"
           :container-class="'flex items-center'"
           :page-class="'paginate_button text-black  p-2 rounded-lg border border-light_purple mx-1 h-8 w-6 cursor-pointer flex items-center justify-center '"
@@ -67,16 +67,16 @@ arrow_forward_ios
 arrow_back_ios_new
 </span>`,
       page: 1,
-      totalPage: 120,
+      totalPage: 5,
       categories: [
-        {name:'Всё', value:'dr'},
-        {name:'Драма', value:'dr'},
-        {name:'Комедия', value:'cm'},
-        {name:'Криминал', value:'cm'},
-        {name:'Аниме', value:'cm'},
-        {name:'Мелодрама', value:'cm'},
+        { name: 'Всё', value: 'Всё', value1: '' },
+        { name: 'Драма', value: 'Драма', value1: '8' },
+        { name: 'Комедия', value: 'Комедия', value1: '6' },
+        { name: 'Криминал', value: 'Криминал', value1: '3' },
+        { name: 'Мелодрама', value: 'Мелодрама', value1: '4' }
       ],
       selected: 'Выберите жанр',
+      selected1: '',
       genres: 'Жанры',
       yearsTitle: 'Год выхода',
       years: [
@@ -95,7 +95,8 @@ arrow_back_ios_new
       this.page=pageNumber
     },
     sortedByCategories(category){
-      this.selected = category.name
+      this.selected = category.value
+      this.selected1 = category.value1
     },
     sortedByYears(year){
       this.selectedYear = year.name
@@ -109,18 +110,18 @@ arrow_back_ios_new
     ...mapGetters(['GET_FILMS','IS_LOADING','ALL_PAGES'])
   },
   watch:{
-    selected(){
-      this.SET_CATEGORIES_TO_API(this.selected.toLowerCase())
-      this.GET_FILMS_FROM_API(this.selected.toLowerCase())
+    selected1(){
+      this.SET_CATEGORIES_TO_API(this.selected1.toLowerCase())
+      this.GET_FILMS_FROM_API(this.selected1.toLowerCase())
 
     },
     selectedYear(){
       this.SET_YEARS_TO_API(this.selectedYear)
-      this.GET_FILMS_FROM_API(this.selected)
+      this.GET_FILMS_FROM_API(this.selected1)
     },
     page(){
       this.reworkPage()
-      this.GET_FILMS_FROM_API(this.selected)
+      this.GET_FILMS_FROM_API(this.selected1)
     },
     ALL_PAGES(){
       this.totalPage = this.ALL_PAGES
@@ -132,7 +133,7 @@ arrow_back_ios_new
     this.page=1
     this.reworkPage()
     this.selectedYear='Выберите год'
-    this.GET_FILMS_FROM_API(this.selected)
+    this.GET_FILMS_FROM_API(this.selected1)
   }
 }
 </script>
@@ -182,6 +183,7 @@ arrow_back_ios_new
     grid-template-columns: repeat(1,1fr);
     gap: 5em;
   }
+
 }
 @media (max-width: 500px){
   .a-selects{

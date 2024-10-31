@@ -25,7 +25,7 @@ export default {
         state.trend = data.data.items
     },
     SET_SERIALS:(state, serials)=>{
-        state.serials = serials.data.docs
+        state.serials = serials.data.items
     },
     updateCurrentUser:(state,data)=> {
         state.current_user = data;
@@ -41,7 +41,7 @@ export default {
     },
 
     SET_FILMS:(state,films)=>{
-        state.films = films.data.docs
+        state.films = films.data.items
         state.allPages = films.data.pages
         console.log(state.allPages)
         console.log(films.data.pages)

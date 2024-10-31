@@ -1,16 +1,14 @@
 <template>
   <div>
     <div class="k-serial-item" >
-      <a :href="`https://www.kinopoisk.ru/film/${films_docs.id}/`" target="_blank">
       <div class="cart-item">
         <img
             class="k-serials-item--img"
-            src="/public/favicon.ico"
+            :src="films_docs.posterUrl"
             @click="filmInfo"
         >
-        <p class="v-catalog-item__name">{{  films_docs.name}}</p>
+        <p class="v-catalog-item__name">{{  films_docs.nameRu}}</p>
       </div>
-      </a>
     </div>
   </div>
 </template>

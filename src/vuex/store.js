@@ -14,10 +14,10 @@ const store = createStore({
         serials:[],
         current_user: {},
         categories: '',
-        years: '2023',
+        years: 2023,
         films: [],
         isLoading: false,
-        allPages: 2
+        allPages: 100
     },
     mutations,//синхронны
     actions,//асинхронны

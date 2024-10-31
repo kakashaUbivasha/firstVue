@@ -23,13 +23,13 @@
   :films_docs="serial"
   />
     </div>
-    <div class="mt-5 flex ml-20">
+    <div class="mt-5 flex ml-20 wphone">
       <paginate
           v-model="page"
           @click="reworkPage()"
           :next-text="nextText"
           :prev-text="prevText"
-          :page-range="3"
+          :page-range="5"
           :margin-pages="2"
           :page-count="totalPage"
           :container-class="'flex items-center p-2'"
@@ -62,15 +62,16 @@ arrow_forward_ios
 arrow_back_ios_new
 </span>`,
       page: 1,
-      totalPage: 120,
+      totalPage: 5,
       categories: [
-        {name:'Драма', value:'dr'},
-        {name:'Комедия', value:'cm'},
-        {name:'Криминал', value:'cm'},
-        {name:'Аниме', value:'cm'},
-        {name:'Мелодрама', value:'cm'},
+        { name: 'Всё', value: 'Всё', value1: '' },
+        { name: 'Драма', value: 'Драма', value1: '8' },
+        { name: 'Комедия', value: 'Комедия', value1: '6' },
+        { name: 'Криминал', value: 'Криминал', value1: '3' },
+        { name: 'Мелодрама', value: 'Мелодрама', value1: '4' }
       ],
       selected: 'Выберите жанр',
+      selected1: '',
       genres: 'Жанры',
       yearsTitle: 'Год выхода',
       years: [
@@ -92,7 +93,8 @@ arrow_back_ios_new
       this.GET_PAGE_VALUE(this.page)
     },
     sortedByCategories(category){
-      this.selected = category.name
+      this.selected = category.value
+      this.selected1 = category.value1
     },
     sortedByYears(year){
       this.selectedYear = year.name
@@ -101,17 +103,17 @@ arrow_back_ios_new
   },
 
   watch:{
-  selected(){
-    this.SET_CATEGORIES_TO_API(this.selected.toLowerCase())
+  selected1(){
+    this.SET_CATEGORIES_TO_API(this.selected1.toLowerCase())
     this.GET_SERIALS()
   },
     selectedYear(){
       this.SET_YEARS_TO_API(this.selectedYear)
-      this.GET_SERIALS(this.selected)
+      this.GET_SERIALS(this.selected1)
     },
     page(){
       this.reworkPage()
-      this.GET_SERIALS(this.selected)
+      this.GET_SERIALS(this.selected1)
     }
   },
   mounted() {
@@ -119,7 +121,7 @@ arrow_back_ios_new
     this.selectedYear='Выберите год'
     this.page=1
     this.reworkPage()
-    this.GET_SERIALS(this.selected)
+    this.GET_SERIALS(this.selected1)
   }
 }
 </script>
@@ -177,6 +179,9 @@ arrow_back_ios_new
   }
   .title{
     margin-top: 50%;
+  }
+  .wphone{
+    margin: 0 auto;
   }
 }
 @media (max-width: 500px){

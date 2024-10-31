@@ -17,12 +17,10 @@ export default {
             },
         })
             .then(films => {
-                // Обработка данных из ответа
                 commit('SET__PRODUCTS', films);
                 console.log(films.data)
             })
             .catch(error => {
-                // Обработка ошибок
                 console.error('не загрузилось');
             })
             .finally(()=>{
@@ -33,14 +31,14 @@ export default {
         console.log(value)
         this.state.isLoading = true
         if(value === 'Выберите жанр'||value===''||value==='всё'){
-            axios.get(`https://api.kinopoisk.dev/v1.4/movie?year=${this.state.years}&page=${this.state.page}&isSeries=false`,{
+            axios.get(`https://api.kinopoiskapiunofficial.tech/api/v2.2/films?yearFrom=${this.state.years}&page=${this.state.page}&genres=${this.state.categories}&type=FILM`,{
                 headers:{
-                    'X-API-KEY': '19KG083-BFMMTWN-GYPDMBR-D6H8GEX',
+                    'X-API-KEY': '8535b8b3-3983-454c-a979-69b08bb57234',
                 }
             })
                 .then(films=>{
                     commit('SET_FILMS', films)
-                    console.log(films)
+                    console.log('lolo',films)
                 })
                 .catch(error=>{
                     console.error(`pizda ${error}`)
@@ -52,9 +50,9 @@ export default {
         }
         else{
             this.state.isLoading = true
-            axios.get(`https://api.kinopoisk.dev/v1.4/movie?year=${this.state.years}&page=${this.state.page}&genres.name=${this.state.categories}&isSeries=false`,{
+            axios.get(`https://api.kinopoiskapiunofficial.tech/api/v2.2/films?yearFrom=${this.state.years}&page=${this.state.page}&genres=${this.state.categories}&type=FILM`,{
                 headers:{
-                    'X-API-KEY': '19KG083-BFMMTWN-GYPDMBR-D6H8GEX',
+                    'X-API-KEY': '8535b8b3-3983-454c-a979-69b08bb57234',
                 }
             })
                 .then(films=>{
@@ -132,9 +130,9 @@ export default {
     GET_SERIALS({commit}, value){
         this.state.isLoading = true
         if(value === 'Выберите жанр'||value===''||value==='Выберите год'){
-            axios.get(`https://api.kinopoisk.dev/v1.4/movie?year=${this.state.years}&page=${this.state.page}&isSeries=true`,{
+            axios.get(`https://api.kinopoiskapiunofficial.tech/api/v2.2/films?type=TV_SERIES&page=${this.state.page}`,{
                 headers:{
-                    'X-API-KEY': '19KG083-BFMMTWN-GYPDMBR-D6H8GEX',
+                    'X-API-KEY': '8535b8b3-3983-454c-a979-69b08bb57234',
                 }
             })
                 .then(serials=>{
@@ -150,9 +148,9 @@ export default {
         }
         else{
             this.state.isLoading = true
-            axios.get(`https://api.kinopoisk.dev/v1.4/movie?year=${this.state.years}&page=${this.state.page}&genres.name=${this.state.categories}&isSeries=true`,{
+            axios.get(`https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=${this.state.categories}&type=TV_SERIES&page=${this.state.page}`,{
                 headers:{
-                    'X-API-KEY': '19KG083-BFMMTWN-GYPDMBR-D6H8GEX',
+                    'X-API-KEY': '8535b8b3-3983-454c-a979-69b08bb57234',
                 }
             })
                 .then(serials=>{
